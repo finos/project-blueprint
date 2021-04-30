@@ -1,4 +1,4 @@
-This website was created with [Docusaurus](https://docusaurus.io/).
+This website was created with [Docusaurus v2](https://v2.docusaurus.io/).
 
 # What's In This Document
 
@@ -19,8 +19,8 @@ $ npm -v
 2. Install and run Docusaurus locally
 
 ```sh
-$ git clone git@github.com:<your fork>/{project slug}.git
-$ cd {project slug}
+$ git clone git@github.com:<your fork>/open-developer-platform.git
+$ cd open-developer-platform
 
 # Download dependencies
 $ yarn --cwd website install
@@ -32,35 +32,7 @@ $ yarn --cwd website start
 ```
 This will open a browser on http://localhost:3300
 
-## Directory Structure
-
-Your project file structure should look something like this
-
-```
-/
-  docs/
-    home.md
-    roadmap.md
-    team.md
-  website/
-    pages/en
-      index.js
-    static/
-      css/
-      img/
-    package.json
-    sidebars.json
-    siteConfig.js
-```
-
-# Editing pages
-This website only includes one page, the `index.js`, which serves the `/` root path of the website.
-
-You can edit contents there, feel free to check other index pages to take inspiration:
-- [FDC3](http://fdc3.org/) - https://github.com/finos/FDC3/blob/master/website/pages/en/index.js
-- [Financial Objects](https://fo.finos.org/) - https://github.com/finos/finos-fo/blob/master/website/pages/en/index.js
-
-# Editing docs contents
+# Editing Content
 
 ## Editing an existing docs page
 
@@ -77,7 +49,7 @@ title: This Doc Needs To Be Edited
 Edit me...
 ```
 
-For more information about docs, click [here](https://docusaurus.io/docs/en/navigation)
+For more information about docs, click [here](https://v2.docusaurus.io/docs/installation#project-structure)
 
 # Adding Content
 
@@ -94,68 +66,40 @@ title: This Doc Needs To Be Edited
 My new content here..
 ```
 
-1. Refer to that doc's ID in an existing sidebar in `website/sidebars.json`:
+2. Refer to that doc's ID in an existing sidebar in `website/sidebars.js`:
 
 ```javascript
 // Add newly-created-doc to the Getting Started category of docs
-{
-  "docs": {
-    "Getting Started": [
-      "quick-start",
-      "newly-created-doc" // new doc here
-    ],
+module.exports = {
+  mainSidebar: {
+    'Getting Started': ["what-is-odp"]
     ...
-  },
+  }
   ...
 }
 ```
 
-For more information about adding new docs, click [here](https://docusaurus.io/docs/en/navigation)
+For more information about adding new docs, click [here](https://v2.docusaurus.io/docs/docs#sidebar)
 
 ## Adding items to your site's top navigation bar
 
-1. Add links to docs, custom pages or external links by editing the headerLinks field of `website/siteConfig.js`:
-
-`website/siteConfig.js`
+1. Add links to docs, custom pages or external links by editing the headerLinks field of `website/docusaurus.config.js`:
 
 ```javascript
 {
-  headerLinks: [
-    ...
-    /* you can add docs */
-    { doc: 'my-examples', label: 'Examples' },
-    /* you can add custom pages */
-    { page: 'help', label: 'Help' },
-    /* you can add external links */
-    { href: 'https://github.com/facebook/docusaurus', label: 'GitHub' },
-    ...
-  ],
-  ...
+  links: [
+    {to: 'docs/what-is-odp', label: 'Docs', position: 'right'},
+    {to: 'docs/roadmap', label: 'Roadmap', position: 'right'},
+    {to: 'docs/team', label: 'Team', position: 'right'},
+    {
+      href: 'https://github.com/finos/open-developer-platform',
+      label: 'GitHub',
+      position: 'right',
+    }
+  ]
 }
 ```
-
-For more information about the navigation bar, click [here](https://docusaurus.io/docs/en/navigation)
-
-## Adding custom pages
-
-1. Docusaurus uses React components to build pages. The components are saved as .js files in `website/pages/en`:
-1. If you want your page to show up in your navigation header, you will need to update `website/siteConfig.js` to add to the `headerLinks` element:
-
-`website/siteConfig.js`
-
-```javascript
-{
-  headerLinks: [
-    ...
-    { page: 'my-new-custom-page', label: 'My New Custom Page' },
-    ...
-  ],
-  ...
-}
-```
-
-For more information about custom pages, click [here](https://docusaurus.io/docs/en/custom-pages).
 
 # Full Documentation
 
-Full documentation can be found on the [website](https://docusaurus.io/).
+Full documentation can be found on the [Docusaurus v2 website](https://v2.docusaurus.io/).

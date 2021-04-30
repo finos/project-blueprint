@@ -1,15 +1,17 @@
 .DS_Store
 
+.docusaurus
+.cache-loader
+
+node_modules
+
 # Docusaurus generated folders
 website/translated_docs/
 website/build/
-website/i18n/
-
-# Yarn build
+website/yarn.lock
+website/package-lock.json
+website/i18n/*
 website/node_modules/
 
 # Generated docs
 docs/contributing.md
-
-# We use YARN
-website/package-lock.json
